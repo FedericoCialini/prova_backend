@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+  db:
+    build: ./db
+    environment:
+      MYSQL_HOST: db
+      MYSQL_PORT: 3306
+      MYSQL_ROOT_PASSWORD: ${TEST_PASS}
+      MYSQL_DATABASE: ${TEST_DB_NAME}
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    restart: on-failure
